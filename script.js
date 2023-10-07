@@ -117,6 +117,12 @@ const createAlarm = (alarmObj) => {
   activeAlarms.appendChild(alarmDiv);
 };
 
+// openModalBtn.addEventListener("click",() =>{
+//   document.getElementById('add-alarm-modal').classList.add("active");
+// })
+// closeModalBtn.addEventListener("click",() =>{
+//   document.getElementById('add-alarm-modal').classList.remove("active");
+// })
 //Set Alarm
 setAlarm.addEventListener("click", () => {
   alarmIndex += 1;
