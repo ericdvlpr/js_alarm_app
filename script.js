@@ -173,6 +173,7 @@ const deleteAlarm = (e) => {
 
 window.onload = () => {
   setInterval(displayTimer);
+  alert('this');
   initialHour = 0;
   initialMinute = 0;
   alarmIndex = 0;
