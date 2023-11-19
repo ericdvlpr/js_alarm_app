@@ -4,9 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  background-color: #377dff;
-}
+
 .container{
   width:100%;
 }
@@ -17,12 +15,13 @@ body {
   background-color: #ffffff;
   width: 90%;
   max-width: 31.25em;
-  padding: 3.12em 5em;
+  padding: 3.12em 1em;
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
   top: 1em;
   border-radius: 0.5em;
+  border: 1px solid #000;
 }
 .timer-display {
   font-size: 2.18em;
@@ -57,7 +56,6 @@ body {
   gap: 1em;
   margin-top: 1.5em;
   align-items: center;
-  border-bottom: 1px solid #898f9b;
   padding-bottom: 0.6em;
 }
 .alarm input[type="checkbox"] {
@@ -86,6 +84,13 @@ body {
 .alarm input[type="checkbox"]:checked:before {
   background-color: #377dff;
   left: 2em;
+}
+.editButton {
+  background-color: transparent;
+  font-size: 1.5em;
+  color: #377dff;
+  border: none;
+  cursor: pointer;
 }
 .deleteButton {
   background-color: transparent;
