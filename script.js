@@ -81,7 +81,7 @@ let alarmSound = new Audio("./alarm.mp3");
     .from('medicines')
     .select('*')
     .contains('day',day)
-    .order('id', { ascending: false })
+    .order('end_time', { ascending: true })
       if(!error) {
         // //loop display data here
         const parent = document.getElementById('activeAlarms')
@@ -119,13 +119,16 @@ let alarmSound = new Audio("./alarm.mp3");
           // //Delete button
           // alarmDiv.innerHTML += `<button class='deleteButton' name="delete" id='${item.id}'><i class="fa-solid fa-trash-can" ></i></button></div>`
           activeAlarms.appendChild(alarmDiv);
-            if(item.day,find(currentday)){
-              if (`${time}` === `${hours}:${minutes}`) {
-                alert('Please drink your medicines')
-                alarmSound.play();
-                alarmSound.loop = true;
-              }
-            }
+          let days = item.day
+          console.log(days.includes(currentday.toString()))
+          console.log(currentday)
+            // if(item.day.find(currentday)){
+            //   if (`${time}` === `${hours}:${minutes}`) {
+            //     alert('Please drink your medicines')
+            //     alarmSound.play();
+            //     alarmSound.loop = true;
+            //   }
+            // }
           })
           
         }
