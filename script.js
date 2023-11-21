@@ -120,15 +120,13 @@ let alarmSound = new Audio("./alarm.mp3");
           // alarmDiv.innerHTML += `<button class='deleteButton' name="delete" id='${item.id}'><i class="fa-solid fa-trash-can" ></i></button></div>`
           activeAlarms.appendChild(alarmDiv);
           let days = item.day
-          console.log(days.includes(currentday.toString()))
-          console.log(currentday)
-            // if(item.day.find(currentday)){
-            //   if (`${time}` === `${hours}:${minutes}`) {
-            //     alert('Please drink your medicines')
-            //     alarmSound.play();
-            //     alarmSound.loop = true;
-            //   }
-            // }
+            if(days.includes(currentday.toString())){
+              if (`${time}` === `${hours}:${minutes}`) {
+                alert('Please drink your medicines')
+                alarmSound.play();
+                alarmSound.loop = true;
+              }
+            }
           })
           
         }
