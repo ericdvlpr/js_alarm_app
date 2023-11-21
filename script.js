@@ -73,6 +73,10 @@ let alarmSound = new Audio("./alarm.mp3");
     let hours = date.getHours();
     let minutes = date.getMinutes();
     const currentday = date.getDay()
+    const daysOfWeek = [
+      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+    ];
+    const dayOfWeek = daysOfWeek[date.getDay()];
     let { data, error } = await _supabase
     .from('medicines')
     .select('*')
@@ -88,15 +92,31 @@ let alarmSound = new Audio("./alarm.mp3");
           hours = hours % 12;
           minutes = minutes < 10 ? '0' + minutes : minutes;
           time = convertTo12Hrs(item.end_time);
-          alarmDiv.classList.add("alarm");
-          alarmDiv.setAttribute("data-id", item.id);
-          alarmDiv.innerHTML += `<span>${item.medicine_name} ${time} ${newformat}</span>`;
+          // alarmDiv.classList.add("alarm");
 
-          //checkbox
-          alarmDiv.innerHTML += `<button class='editButton' name="edit" id='${item.id}'><i class="fa-solid fa-pen-to-square"></i></i></button>`
+          // alarmDiv.setAttribute("data-id", item.id);
+          alarmDiv.innerHTML +=`<div class="card alarm-card">
+              <div class="card-body">
+                <div class='float-start'>
+                ${dayOfWeek}<br />
+                <h1>${time} <small>${newformat}</small></h1>
+                <p>${item.medicine_name} </p>
+                </div>
+                <div class='float-end'>
+                  <button class='editButton ' name="edit" id='${item.id}'><i class="fa-solid fa-pen-to-square"></i></i></button>
+                  <button class='deleteButton ' name="delete" id='${item.id}'><i class="fa-solid fa-trash-can" ></i></button>
+                </div>
+              </div>
+            </div>`;
+
+
+          // alarmDiv.innerHTML += `<div><span>${item.medicine_name} ${time} ${newformat}</span>`;
+
+          // //checkbox
+          // alarmDiv.innerHTML += `<button class='editButton' name="edit" id='${item.id}'><i class="fa-solid fa-pen-to-square"></i></i></button>`
           
-          //Delete button
-          alarmDiv.innerHTML += `<button class='deleteButton' name="delete" id='${item.id}'><i class="fa-solid fa-trash-can" ></i></button>`
+          // //Delete button
+          // alarmDiv.innerHTML += `<button class='deleteButton' name="delete" id='${item.id}'><i class="fa-solid fa-trash-can" ></i></button></div>`
           activeAlarms.appendChild(alarmDiv);
             if(item.day,find(currentday)){
               if (`${time}` === `${hours}:${minutes}`) {
@@ -135,6 +155,7 @@ let alarmSound = new Audio("./alarm.mp3");
               item.day.forEach(function(days){
                 $('#'+days).prop('checked', true);
               })
+              $('#exampleModalLabel').html('Edit Alarm')
               $('#action').val('Update')
               $('.action').html('Update Alarm')
             })
@@ -224,7 +245,7 @@ function displayTimer() {
   seconds = seconds < 10 ? '0' + seconds : seconds;
   
   //Display time
-  timerRef.innerHTML = `${hours}:${minutes}:${seconds} ${newformat}`;
+  // timerRef.innerHTML = `${hours}:${minutes}:${seconds} ${newformat}`;
   //Alarm
   
 }
@@ -343,7 +364,6 @@ const editAlarm = async (alarmObj) => {
     .select()
     if(!error){
       location.reload()
-      console.log('Updated')
     }
 }
 $('.action').on("click", function(e){

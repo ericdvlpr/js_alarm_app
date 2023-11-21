@@ -18,17 +18,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <div class="container-fluid">
-      <div class="wrapper">
-        <div class="timer-display">00:00:00</div>
-        <div class="container">
-          <div class="activeAlarms" id="activeAlarms"></div>
+      <div class="row">
+        <div class="appHeader">
+            <img src="logo.png" class="img-fluid" >
         </div>
       </div>
+      <div class="row">
+        <div class="wrapper">
+          <!-- <div class="timer-display">00:00:00</div> -->
+            <div class="activeAlarms " id="activeAlarms"></div>
+        </div>
+        <div class="row fixed-bottom">
+          <button type="button"  id="add-alarm-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" >
+            <span>+</span>
+          </button> 
+        </div>
+      </div>
+     
     </div>
-      <button type="button" id="add-alarm-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" >
-        <span>+</span>
-      </button> 
+     
       
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,7 +108,7 @@
                    </ul>
                 </div>
                 <input type="hidden" name="action" id="action" value="Add" />
-                <input type="text" name="id" id="id" />
+                <input type="hidden" name="id" id="id" />
               </form>
               
              </div>
@@ -110,7 +120,7 @@
           </div>
         </div>
       </div>
-      
+
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
