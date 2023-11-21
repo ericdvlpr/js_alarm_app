@@ -81,6 +81,7 @@ let alarmSound = new Audio("./alarm.mp3");
     .from('medicines')
     .select('*')
     .contains('day',day)
+    .order('id', { ascending: false })
       if(!error) {
         // //loop display data here
         const parent = document.getElementById('activeAlarms')
