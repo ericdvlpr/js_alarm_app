@@ -125,6 +125,7 @@ let alarmSound = new Audio("./alarm.mp3");
                 alert('Please drink your medicines')
                 alarmSound.play();
                 alarmSound.loop = true;
+                alarmSound.volume =1;
               }
             }
           })
