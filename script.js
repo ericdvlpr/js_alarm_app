@@ -178,8 +178,7 @@ let alarmSound = new Audio("./alarm.mp3");
           }
         })
   }
-  
-  fetchData()
+
   // fetchData().then(data => {
   //   data.forEach((alarms,index) =>{
   //     alarmDiv.classList.add("alarm");
@@ -429,12 +428,14 @@ const deleteAlarm = async (id) => {
 };
 
 window.onload = () => {
-  setInterval(displayTimer);
+  // setInterval(displayTimer);
   initialHour = 0;
   initialMinute = 0;
   alarmIndex = 0;
   alarmsArray = [];
   medicineInput.value = ''
+    
+  fetchData()
   
 };
 
