@@ -178,7 +178,7 @@ let alarmSound = new Audio("./alarm.mp3");
           }
         })
   }
-
+  fetchData()
   // fetchData().then(data => {
   //   data.forEach((alarms,index) =>{
   //     alarmDiv.classList.add("alarm");
@@ -434,9 +434,6 @@ window.onload = () => {
   alarmIndex = 0;
   alarmsArray = [];
   medicineInput.value = ''
-    
-  fetchData()
-  
 };
 
 })
