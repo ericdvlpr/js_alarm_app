@@ -51,11 +51,17 @@
             <div class="modal-body">
              <div class="container">
               <form class="row g-3">
-                <div class="col-md-6">
+                <div class="col-md-6 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa-solid fa-pills fa-lg p-3"></i>
+                    </span>
+                  </div>
                   <input type="text"  class="form-control"
                   id="med_name"
                   placeholder="Medicine Name"
                   required
+                  aria-describedby="basic-addon1"
                   />
                 </div>
                 <div class="col-md-6">
